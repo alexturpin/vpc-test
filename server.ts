@@ -8,6 +8,8 @@ const createServer = async () => {
     server: { middlewareMode: true },
   })
 
+  app.use(vite.middlewares)
+
   app.listen(3000)
 }
 
