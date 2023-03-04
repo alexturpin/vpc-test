@@ -1,15 +1,12 @@
-# VPC issue with Vite v4 + React plugin
+# VPC issue with POST bodies
+
+`npm run dev` to run it through VPC. Then make a POST request against it with a body, and notice the empty body in the server console.
 
 ```
-➜  vpc-test git:(main) ✗ npm run dev
-
-> vpc-test@0.0.0 dev
-> vite dev
-
-error when starting dev server:
-TypeError: esbuild.context is not a function
-    at build (file:///Users/alexturpin/src/vpc-test/node_modules/vite-plugin-cloudflare/dist/vite.js:112:48)
-    at configureServer (file:///Users/alexturpin/src/vpc-test/node_modules/vite-plugin-cloudflare/dist/vite.js:141:51)
-    at createServer (file:///Users/alexturpin/src/vpc-test/node_modules/vite/dist/node/chunks/dep-0bae2027.js:61059:30)
-    at async CAC.<anonymous> (file:///Users/alexturpin/src/vpc-test/node_modules/vite/dist/node/cli.js:729:24)
+fetch("/test", {
+    method: "POST",
+    body: "test",
+})
 ```
+
+This however, works fine when running directly through Miniflare with `npm run mf`.

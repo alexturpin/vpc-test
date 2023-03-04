@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
+    "dev": "node --experimental-vm-modules node_modules/.bin/vite",
+    "mf": "npx miniflare --modules worker.js",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
